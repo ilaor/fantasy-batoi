@@ -512,3 +512,120 @@ body {
   color: var(--text-main);
   text-align: center;
 }
+
+/* Reglament Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.rules-modal {
+  background: var(--surface);
+  width: 100%;
+  height: 100%;
+  padding: 4rem 1.5rem 6rem;
+  position: relative;
+  overflow-y: auto;
+  box-shadow: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--bg-color);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: var(--border-color);
+  transform: rotate(90deg);
+}
+
+.rules-title {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.rules-section {
+  margin-bottom: 2rem;
+}
+
+.rules-section-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 19, 240, 0.1);
+  padding-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.rules-list {
+  list-style: none;
+}
+
+.rules-list li {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  line-height: 1.5;
+  display: flex;
+  gap: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+/* Removed bullet dots */
+.rules-list li::before {
+  display: none;
+}
+
+.reglament-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  color: var(--primary);
+  border: 1px solid rgba(0, 19, 240, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 2rem auto 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.reglament-btn:hover {
+  background: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
