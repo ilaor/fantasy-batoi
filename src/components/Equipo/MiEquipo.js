@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, UserCircle2, ArrowLeft, ChevronUp, ChevronDown, Edit2, Check } from 'lucide-react';
+import { UserCircle2, ArrowLeft, ChevronUp, ChevronDown, Edit2, Check } from 'lucide-react';
 import { TEAMS } from '../../data/mockData';
 
 const PlayerCard = ({ player, onClick, isModifying }) => {

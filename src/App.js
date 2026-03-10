@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import { Trophy, Users, User, Circle, ArrowLeftRight } from 'lucide-react';
+import { Trophy, User, Circle, ArrowLeftRight } from 'lucide-react';
 import Partits from './components/Partits/Partits';
 import MiEquipo from './components/Equipo/MiEquipo';
 import Perfil from './components/Perfil/Perfil';
