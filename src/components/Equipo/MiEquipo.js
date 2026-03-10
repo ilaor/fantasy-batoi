@@ -2,48 +2,93 @@ import React, { useState } from 'react';
 import { Users, UserCircle2, ArrowLeft, ChevronUp, ChevronDown, Edit2, Check } from 'lucide-react';
 import { TEAMS } from '../../data/mockData';
 
-const PlayerCard = ({ player, onClick, isModifying }) => (
-    <div className="player-card" onClick={() => onClick(player)} style={{ border: isModifying ? '2px dashed var(--primary)' : '1px solid rgba(255, 255, 255, 0.2)' }}>
-        <div className="player-avatar">
-            <UserCircle2 size={24} color="#64748b" strokeWidth={1.5} />
-        </div>
-        <span className="player-name">{player.n}</span>
-        {!isModifying && <span className="player-badge">{player.p || 0}</span>}
-        {isModifying && <span className="player-badge" style={{ color: 'white', backgroundColor: 'var(--primary)', borderRadius: '50%', width: '16px', height: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', marginTop: '2px', lineHeight: 1 }}>+</span>}
-    </div>
-);
+const PlayerCard = ({ player, onClick, isModifying }) => {
+    if (player.isEmpty) {
+        return (
+            <div className="player-card" onClick={() => isModifying && onClick(player)} style={{ border: '2px dashed var(--primary)', background: 'rgba(255, 255, 255, 0.5)', minHeight: '80px', justifyContent: 'center' }}>
+                <div style={{ color: 'var(--primary)', fontWeight: 'bold', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '38px', height: '38px', borderRadius: '50%', border: '2px dashed var(--primary)', marginBottom: '0.25rem' }}>+</div>
+                <span className="player-name" style={{ color: 'var(--primary)' }}>Afegeix</span>
+            </div>
+        );
+    }
 
-const MiEquipo = () => {
-    // Estado de la alineación para poder modificar los puntos
-    const [alineacion, setAlineacion] = useState([
-        { id: "x9", n: "Ferran", p: 0, pos: "DEL" }, { id: "p9", n: "Mbappé", p: 0, pos: "DEL" }, { id: "h9", n: "Budimir", p: 0, pos: "DEL" },
-        { id: "x6", n: "M. Llorente", p: 35, pos: "MED" }, { id: "a8", n: "Bellingham", p: 0, pos: "MED" }, { id: "f6", n: "Koke", p: 0, pos: "MED" },
-        { id: "p2", n: "Koundé", p: 27, pos: "DEF" }, { id: "i4", n: "Rüdiger", p: 20, pos: "DEF" }, { id: "m2", n: "Natan", p: 17, pos: "DEF" }, { id: "f2", n: "Andrei Ratiu", p: 24, pos: "DEF" },
-        { id: "p1", n: "Courtois", p: 43, pos: "POR" }
-    ]);
+    return (
+        <div className="player-card" onClick={() => onClick(player)} style={{ border: isModifying ? '2px dashed var(--primary)' : '1px solid rgba(255, 255, 255, 0.2)' }}>
+            <div className="player-avatar">
+                <UserCircle2 size={24} color="#64748b" strokeWidth={1.5} />
+            </div>
+            <span className="player-name">{player.n}</span>
+            {!isModifying && <span className="player-badge">{player.p || 0}</span>}
+            {isModifying && <span className="player-badge" style={{ color: 'white', backgroundColor: 'var(--primary)', borderRadius: '50%', width: '16px', height: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', marginTop: '2px', lineHeight: 1 }}>+</span>}
+        </div>
+    );
+};
+
+const MiEquipo = ({ alineacion, setAlineacion }) => {
 
     const [editingPlayer, setEditingPlayer] = useState(null);
     const [isModifyingTeam, setIsModifyingTeam] = useState(false);
     const [selectingForPlayer, setSelectingForPlayer] = useState(null);
 
-    // Obtener todos los jugadores disponibles de la liga (mockData)
+    const defCount = alineacion.filter(p => p.pos === 'DEF').length;
+    const medCount = alineacion.filter(p => p.pos === 'MED').length;
+    const delCount = alineacion.filter(p => p.pos === 'DEL').length;
+    const currentFormation = `${defCount}-${medCount}-${delCount}`;
+
+    const handleFormationChange = (targetFormation) => {
+        if (targetFormation === currentFormation) return;
+
+        const [tDef, tMed, tDel] = targetFormation.split('-').map(Number);
+        let newAlineacion = [];
+
+        const processPos = (pos, targetCount) => {
+            let currentPlayers = alineacion.filter(p => p.pos === pos);
+            if (currentPlayers.length > targetCount) {
+                newAlineacion = [...newAlineacion, ...currentPlayers.slice(0, targetCount)];
+            } else if (currentPlayers.length < targetCount) {
+                newAlineacion = [...newAlineacion, ...currentPlayers];
+                for (let i = currentPlayers.length; i < targetCount; i++) {
+                    newAlineacion.push({ id: `empty-${pos}-${Date.now()}-${i}`, n: 'Buit', p: 0, pos: pos, isEmpty: true });
+                }
+            } else {
+                newAlineacion = [...newAlineacion, ...currentPlayers];
+            }
+        };
+
+        processPos('POR', 1);
+        processPos('DEF', tDef);
+        processPos('MED', tMed);
+        processPos('DEL', tDel);
+
+        setAlineacion(newAlineacion);
+    };
+
+    // Obtener todos los jugadores disponibles de la plantilla de IVAN FC (id: 5)
     const getAllPlayers = () => {
-        let allPlayers = [];
-        TEAMS.forEach(team => {
-            allPlayers = [...allPlayers, ...team.alineacion];
-        });
-        return allPlayers;
+        const ivanFc = TEAMS.find(t => t.id === 5);
+        return ivanFc ? ivanFc.alineacion : [];
     };
 
     const updatePoints = (increment) => {
-        if (!editingPlayer) return;
+        if (!editingPlayer || editingPlayer.isEmpty) return;
 
         const newPoints = (editingPlayer.p || 0) + increment;
 
         // Actualizar el estado temporal del jugador editado
         setEditingPlayer({ ...editingPlayer, p: newPoints });
 
-        // Actualizar la alineación general
+        // 1. Sincronización global ("Backend" simulado)
+        // Buscamos a este jugador en todas las plantillas de mockData y actualizamos sus puntos reales.
+        // Como TEAMS es un array de objetos en memoria, mutarlo aquí afecta a toda la app al momento.
+        TEAMS.forEach(team => {
+            const index = team.alineacion.findIndex(p => p.id === editingPlayer.id);
+            if (index !== -1) {
+                team.alineacion[index].p = newPoints;
+            }
+        });
+
+        // 2. Sincronización local (Front-end 11 inicial de Ivan FC)
+        // Actualizar la alineación general para que la UI se renderice inmediatamente
         setAlineacion(alineacion.map(p =>
             p.id === editingPlayer.id ? { ...p, p: newPoints } : p
         ));
@@ -89,7 +134,7 @@ const MiEquipo = () => {
                         <ArrowLeft size={30} />
                     </button>
                     <h2 style={{ margin: 0, color: 'var(--text-main)', fontSize: '1.3rem' }}>
-                        Mercat {selectingForPlayer.pos}
+                        els teus jugadors posició: {selectingForPlayer.pos}
                     </h2>
                 </div>
 
@@ -207,37 +252,58 @@ const MiEquipo = () => {
     const med = alineacion.filter(p => p.pos === 'MED');
     const del = alineacion.filter(p => p.pos === 'DEL');
 
+    const allowedFormations = ['5-4-1', '5-3-2', '4-5-1', '4-4-2', '4-3-3', '3-5-2', '3-4-3'];
+
     return (
         <div className="animate-fade-in">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <h2 className="section-title" style={{ margin: 0 }}>
-                    <Users size={20} color="var(--primary)" />
-                    11 Inicial
-                </h2>
+            {isModifyingTeam && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1rem' }}>
+                    <div style={{ background: 'rgba(0,19,240,0.05)', color: 'var(--primary)', padding: '0.75rem', borderRadius: '0.75rem', fontSize: '0.9rem', textAlign: 'center', border: '1px solid rgba(0,19,240,0.1)', fontWeight: 'bold' }}>
+                        Tria l'alineació i toca un jugador per substituir-lo.
+                    </div>
+                    <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        {allowedFormations.map(form => (
+                            <button
+                                key={form}
+                                onClick={() => handleFormationChange(form)}
+                                style={{
+                                    background: currentFormation === form ? 'var(--primary)' : 'white',
+                                    color: currentFormation === form ? 'white' : 'var(--primary)',
+                                    border: '1px solid var(--primary)',
+                                    padding: '0.3rem 0.6rem',
+                                    borderRadius: '1rem',
+                                    cursor: 'pointer',
+                                    fontWeight: 'bold',
+                                    fontSize: '0.75rem',
+                                    transition: 'all 0.2s'
+                                }}
+                            >
+                                {form}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
 
+            <div className={`pitch-container ${isModifyingTeam ? 'modifying' : ''}`}>
                 <button
                     onClick={() => setIsModifyingTeam(!isModifyingTeam)}
                     style={{
+                        position: 'absolute',
+                        top: '1rem',
+                        right: '1rem',
+                        zIndex: 20,
                         display: 'flex', alignItems: 'center', gap: '0.5rem',
                         background: isModifyingTeam ? 'var(--primary)' : 'white',
                         color: isModifyingTeam ? 'white' : 'var(--primary)',
                         border: '1px solid var(--primary)',
                         padding: '0.5rem 1rem', borderRadius: '2rem',
                         cursor: 'pointer', fontWeight: 'bold', transition: 'all 0.2s',
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                     }}
                 >
-                    {isModifyingTeam ? <><Check size={16} /> Fet</> : <><Edit2 size={16} /> Canviar</>}
+                    {isModifyingTeam ? <><Check size={16} /> Fet</> : <><Edit2 size={16} />modifica</>}
                 </button>
-            </div>
-
-            {isModifyingTeam && (
-                <div style={{ background: 'rgba(0,19,240,0.05)', color: 'var(--primary)', padding: '0.75rem', borderRadius: '0.75rem', marginBottom: '1rem', fontSize: '0.9rem', textAlign: 'center', border: '1px solid rgba(0,19,240,0.1)', fontWeight: 'bold' }}>
-                    Toca un jugador per substituir-lo.
-                </div>
-            )}
-
-            <div className={`pitch-container ${isModifyingTeam ? 'modifying' : ''}`}>
                 <div className="pitch-lines">
                     <div className="pitch-penalty-area-top" /><div className="pitch-center-line" />
                     <div className="pitch-center-circle" /><div className="pitch-penalty-area-bottom" />

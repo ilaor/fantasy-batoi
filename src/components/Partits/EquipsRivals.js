@@ -1,7 +1,7 @@
 // src/components/Partits/EquipsRivals.js
 import React, { useState } from 'react';
 import { User, UserCircle2, ArrowLeft } from 'lucide-react';
-import { TEAMS } from '../../data/mockData';
+import { TEAMS, getTitulares } from '../../data/mockData';
 
 const PlayerCard = ({ name, p }) => (
     <div className="player-card">
@@ -13,15 +13,20 @@ const PlayerCard = ({ name, p }) => (
     </div>
 );
 
-const EquipsRivals = () => {
+const EquipsRivals = ({ ivanLineup }) => {
     const [selectedTeam, setSelectedTeam] = useState(null);
 
     if (selectedTeam) {
+        // Generar la alineación a mostrar. 
+        // Si el equipo seleccionado es IVAN FC (id: 5), usar el estado global modificado.
+        // Si es otro, extraer su 11 titular válido de mockData.js basándose en puntos
+        const alineacionMostrar = selectedTeam.id === 5 ? ivanLineup : getTitulares(selectedTeam.id);
+
         // Agrupar jugadores por posición
-        const por = selectedTeam.alineacion.filter(p => p.pos === 'POR');
-        const def = selectedTeam.alineacion.filter(p => p.pos === 'DEF');
-        const med = selectedTeam.alineacion.filter(p => p.pos === 'MED');
-        const del = selectedTeam.alineacion.filter(p => p.pos === 'DEL');
+        const por = alineacionMostrar.filter(p => p.pos === 'POR');
+        const def = alineacionMostrar.filter(p => p.pos === 'DEF');
+        const med = alineacionMostrar.filter(p => p.pos === 'MED');
+        const del = alineacionMostrar.filter(p => p.pos === 'DEL');
 
         return (
             <div className="animate-fade-in" style={{

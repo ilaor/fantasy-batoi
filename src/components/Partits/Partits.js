@@ -4,7 +4,7 @@ import Enfrontaments from './Enfrontaments';
 import Classificacions from './Classificacions';
 import EquipsRivals from './EquipsRivals';
 
-const Partits = () => {
+const Partits = ({ ivanLineup }) => {
     const [subTab, setSubTab] = useState('enfrontaments');
 
     return (
@@ -33,9 +33,9 @@ const Partits = () => {
 
             {/* Renderizado condicional del contenido */}
             <div className="sub-tab-content">
-                {subTab === 'enfrontaments' && <Enfrontaments />}
-                {subTab === 'classificacions' && <Classificacions />}
-                {subTab === 'rivals' && <EquipsRivals />}
+                {subTab === 'enfrontaments' && <Enfrontaments ivanLineup={ivanLineup} />}
+                {subTab === 'classificacions' && <Classificacions ivanLineup={ivanLineup} />}
+                {subTab === 'rivals' && <EquipsRivals ivanLineup={ivanLineup} />}
             </div>
         </div>
     );

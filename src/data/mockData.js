@@ -4,21 +4,22 @@ export const TEAMS = [
         id: 1,
         name: "XIMO FC",
         manager: "Ximo",
+        email: "ximoperezpascual3@gmail.com",
         presupuesto: "403 M",
         gf: 0,
         pts: 97,
         alineacion: [
 
-            { id: "x1", n: "Mikel Santos", p: 0.5, pos: "POR" },
+            { id: "x1", n: "Mikel Santos", p: 0, pos: "POR" },
             { id: "x2", n: "Andrei Radu", p: 28, pos: "POR" },
-            { id: "x3", n: "M. Rayan", p: 7.5, pos: "POR" },
+            { id: "x3", n: "M. Rayan", p: 7, pos: "POR" },
 
             { id: "x4", n: "Javi Galán", p: 10, pos: "DEF" },
             { id: "x5", n: "Aitor Ruibal", p: 5, pos: "DEF" },
-            { id: "x6", n: "Fran García", p: 0.5, pos: "DEF" },
+            { id: "x6", n: "Fran García", p: 0, pos: "DEF" },
             { id: "x7", n: "Dani Vivian", p: 10, pos: "DEF" },
             { id: "x8", n: "Marcos Llorente", p: 35, pos: "DEF" },
-            { id: "x9", n: "Sergi Cardona", p: 0.5, pos: "DEF" },
+            { id: "x9", n: "Sergi Cardona", p: 0, pos: "DEF" },
 
             { id: "x10", n: "Fermín", p: 0, pos: "MED" },
             { id: "x11", n: "Barrios", p: 0, pos: "MED" },
@@ -40,21 +41,22 @@ export const TEAMS = [
         id: 2,
         name: "PAU FC",
         manager: "Pau",
+        email: "Pau.molto.e@gmail.com",
         presupuesto: "402,5 M",
         gf: 0,
-        pts: 97.5,
+        pts: 97,
         alineacion: [
 
             { id: "p1", n: "Iñaki Peña", p: 7, pos: "POR" },
-            { id: "p2", n: "Musso", p: 1.5, pos: "POR" },
+            { id: "p2", n: "Musso", p: 1, pos: "POR" },
             { id: "p3", n: "Courtois", p: 43, pos: "POR" },
 
-            { id: "p4", n: "Alaba", p: 0.5, pos: "DEF" },
-            { id: "p5", n: "D. Duarte", p: 5.5, pos: "DEF" },
+            { id: "p4", n: "Alaba", p: 0, pos: "DEF" },
+            { id: "p5", n: "D. Duarte", p: 5, pos: "DEF" },
             { id: "p6", n: "Koundé", p: 27, pos: "DEF" },
-            { id: "p7", n: "A. Elustondo", p: 0.5, pos: "DEF" },
+            { id: "p7", n: "A. Elustondo", p: 0, pos: "DEF" },
             { id: "p8", n: "Ruggeri", p: 12, pos: "DEF" },
-            { id: "p9", n: "Huijsen", p: 0.5, pos: "DEF" },
+            { id: "p9", n: "Huijsen", p: 0, pos: "DEF" },
 
             { id: "p10", n: "Arambarri", p: 0, pos: "MED" },
             { id: "p11", n: "Rioja", p: 0, pos: "MED" },
@@ -63,7 +65,7 @@ export const TEAMS = [
             { id: "p14", n: "Samu Costa", p: 0, pos: "MED" },
             { id: "p15", n: "Lemar", p: 0, pos: "MED" },
 
-            { id: "p16", n: "Mbappé", p: 0, pos: "DEL" },
+            { id: "p16", n: " ppé", p: 0, pos: "DEL" },
             { id: "p17", n: "Rashford", p: 0, pos: "DEL" },
             { id: "p18", n: "Ilyas", p: 0, pos: "DEL" },
             { id: "p19", n: "Hugo Duro", p: 0, pos: "DEL" },
@@ -76,17 +78,18 @@ export const TEAMS = [
         id: 3,
         name: "ARNAU FC",
         manager: "Arnau",
+        email: "arnaau02@gmail.com",
         presupuesto: "410,5 M",
         gf: 0,
-        pts: 89.5,
+        pts: 89,
         alineacion: [
 
             { id: "a1", n: "Álvaro Vallés", p: 15, pos: "POR" },
-            { id: "a2", n: "Adrián", p: 0.5, pos: "POR" },
-            { id: "a3", n: "Ter Stegen", p: 0.5, pos: "POR" },
+            { id: "a2", n: "Adrián", p: 0, pos: "POR" },
+            { id: "a3", n: "Ter Stegen", p: 0, pos: "POR" },
 
             { id: "a4", n: "J. Mojíca", p: 5, pos: "DEF" },
-            { id: "a5", n: "A. Laporte", p: 7.5, pos: "DEF" },
+            { id: "a5", n: "A. Laporte", p: 7, pos: "DEF" },
             { id: "a6", n: "Arnau Martínez", p: 8, pos: "DEF" },
             { id: "a7", n: "J. Rodríguez", p: 5, pos: "DEF" },
             { id: "a8", n: "Marc Pubil", p: 22, pos: "DEF" },
@@ -112,13 +115,14 @@ export const TEAMS = [
         id: 4,
         name: "JORGE FC",
         manager: "Jorge",
+        email: "jorgerioshidalgo499@gmail.com",
         presupuesto: "423 M",
         gf: 0,
         pts: 76,
         alineacion: [
 
-            { id: "j1", n: "S. Esquivel", p: 0.5, pos: "POR" },
-            { id: "j2", n: "Iván Cuéllar", p: 0.5, pos: "POR" },
+            { id: "j1", n: "S. Esquivel", p: 0, pos: "POR" },
+            { id: "j2", n: "Iván Cuéllar", p: 0, pos: "POR" },
             { id: "j3", n: "Oblak", p: 36, pos: "POR" },
 
             { id: "j4", n: "J. Giménez", p: 0, pos: "DEF" },
@@ -148,14 +152,15 @@ export const TEAMS = [
         id: 5,
         name: "IVAN FC",
         manager: "Ivan",
+        email: "ivanlaraorta@gmail.com",
         presupuesto: "454,5 M",
         gf: 0,
-        pts: 45.5,
+        pts: 45,
         alineacion: [
 
-            { id: "i1", n: "Dani Cárdenas", p: 1.5, pos: "POR" },
-            { id: "i2", n: "David Soria", p: 0.5, pos: "POR" },
-            { id: "i3", n: "A. Escandell", p: 0.5, pos: "POR" },
+            { id: "i1", n: "Dani Cárdenas", p: 1, pos: "POR" },
+            { id: "i2", n: "David Soria", p: 10, pos: "POR" },
+            { id: "i3", n: "A. Escandell", p: 0, pos: "POR" },
 
             { id: "i4", n: "Valjent", p: 5, pos: "DEF" },
             { id: "i5", n: "David Costas", p: 10, pos: "DEF" },
@@ -184,20 +189,21 @@ export const TEAMS = [
         id: 6,
         name: "HUGO FC",
         manager: "Hugo",
+        email: "hugoagullo28@gmail.com",
         presupuesto: "444,5 M",
         gf: 0,
-        pts: 55.5,
+        pts: 55,
         alineacion: [
 
-            { id: "h1", n: "Arnau Tenas", p: 0.5, pos: "POR" },
+            { id: "h1", n: "Arnau Tenas", p: 0, pos: "POR" },
             { id: "h2", n: "Sergio Herrera", p: 7, pos: "POR" },
-            { id: "h3", n: "Sivera", p: 4.5, pos: "POR" },
+            { id: "h3", n: "Sivera", p: 4, pos: "POR" },
 
             { id: "h4", n: "Álex Moreno", p: 6, pos: "DEF" },
-            { id: "h5", n: "Cubarsí", p: 1.5, pos: "DEF" },
-            { id: "h6", n: "Pacha Espino", p: 0.5, pos: "DEF" },
+            { id: "h5", n: "Cubarsí", p: 1, pos: "DEF" },
+            { id: "h6", n: "Pacha Espino", p: 0, pos: "DEF" },
             { id: "h7", n: "Jonny", p: 1, pos: "DEF" },
-            { id: "h8", n: "Manu Sánchez", p: 0.5, pos: "DEF" },
+            { id: "h8", n: "Manu Sánchez", p: 0, pos: "DEF" },
             { id: "h9", n: "Lejeune", p: 3, pos: "DEF" },
 
             { id: "h10", n: "Fornals", p: 0, pos: "MED" },
@@ -220,20 +226,21 @@ export const TEAMS = [
         id: 7,
         name: "FERRÁN FC",
         manager: "Ferrán",
+        email: "alejandrotorresalcaraz0@gmail.com",
         presupuesto: "421 M",
         gf: 0,
         pts: 79,
         alineacion: [
 
-            { id: "f1", n: "Lunin", p: 3.5, pos: "POR" },
+            { id: "f1", n: "Lunin", p: 3, pos: "POR" },
             { id: "f2", n: "Alex Remiro", p: 25, pos: "POR" },
-            { id: "f3", n: "Gazzaniga", p: 0.5, pos: "POR" },
+            { id: "f3", n: "Gazzaniga", p: 0, pos: "POR" },
 
             { id: "f4", n: "Nacho Vidal", p: 3, pos: "DEF" },
             { id: "f5", n: "Andrei Ratiu", p: 24, pos: "DEF" },
-            { id: "f6", n: "Aramburu", p: 8.5, pos: "DEF" },
-            { id: "f7", n: "Unai Núñez", p: 2.5, pos: "DEF" },
-            { id: "f8", n: "Pep Chavarría", p: 0.5, pos: "DEF" },
+            { id: "f6", n: "Aramburu", p: 8, pos: "DEF" },
+            { id: "f7", n: "Unai Núñez", p: 2, pos: "DEF" },
+            { id: "f8", n: "Pep Chavarría", p: 0, pos: "DEF" },
             { id: "f9", n: "Marcos Alonso", p: 10, pos: "DEF" },
 
             { id: "f10", n: "Arda Güler", p: 0, pos: "MED" },
@@ -257,12 +264,13 @@ export const TEAMS = [
         id: 8,
         name: "MIGUE FC",
         manager: "Migue",
+        email: "mcardenalsalas@gmail.com",
         presupuesto: "421,5 M",
         gf: 0,
-        pts: 78.5,
+        pts: 78,
         alineacion: [
 
-            { id: "m1", n: "Dituro", p: 4.5, pos: "POR" },
+            { id: "m1", n: "Dituro", p: 4, pos: "POR" },
             { id: "m2", n: "Unai Simón", p: 22, pos: "POR" },
             { id: "m3", n: "Dimtrovic", p: 7, pos: "POR" },
 
@@ -294,19 +302,20 @@ export const TEAMS = [
         id: 9,
         name: "SERGIO FC",
         manager: "Sergio",
+        email: "sergiorequenaoltra@gmail.com",
         presupuesto: "437 M",
         gf: 0,
         pts: 63,
         alineacion: [
 
-            { id: "s1", n: "Sergio Mestre", p: 0.5, pos: "POR" },
+            { id: "s1", n: "Sergio Mestre", p: 0, pos: "POR" },
             { id: "s2", n: "A. Batalla", p: 25, pos: "POR" },
-            { id: "s3", n: "Leo Román", p: 4.5, pos: "POR" },
+            { id: "s3", n: "Leo Román", p: 4, pos: "POR" },
 
             { id: "s4", n: "Calero", p: 7, pos: "DEF" },
             { id: "s5", n: "Hancko", p: 19, pos: "DEF" },
-            { id: "s6", n: "Carl Starfelt", p: 4.5, pos: "DEF" },
-            { id: "s7", n: "P. Bigas", p: 0.5, pos: "DEF" },
+            { id: "s6", n: "Carl Starfelt", p: 4, pos: "DEF" },
+            { id: "s7", n: "P. Bigas", p: 0, pos: "DEF" },
             { id: "s8", n: "Le Normand", p: 1, pos: "DEF" },
             { id: "s9", n: "A. Arnold", p: 1, pos: "DEF" },
 
@@ -331,20 +340,21 @@ export const TEAMS = [
         id: 10,
         name: "CAPÓ FC",
         manager: "Capó",
+        email: "jordicapocalabuig@gmail.com",
         presupuesto: "424,5 M",
         gf: 0,
-        pts: 75.5,
+        pts: 75,
         alineacion: [
 
             { id: "c1", n: "Vlachodimos", p: 10, pos: "POR" },
-            { id: "c2", n: "Dimitrevski", p: 9.5, pos: "POR" },
+            { id: "c2", n: "Dimitrevski", p: 9, pos: "POR" },
             { id: "c3", n: "Luiz Junior", p: 27, pos: "POR" },
 
-            { id: "c4", n: "Rosier", p: 7.5, pos: "DEF" },
-            { id: "c5", n: "Cabrera", p: 7.5, pos: "DEF" },
+            { id: "c4", n: "Rosier", p: 7, pos: "DEF" },
+            { id: "c5", n: "Cabrera", p: 7, pos: "DEF" },
             { id: "c6", n: "Juan Iglesias", p: 4, pos: "DEF" },
-            { id: "c7", n: "Sergio Gómez", p: 6.5, pos: "DEF" },
-            { id: "c8", n: "Yuri", p: 0.5, pos: "DEF" },
+            { id: "c7", n: "Sergio Gómez", p: 6, pos: "DEF" },
+            { id: "c8", n: "Yuri", p: 0, pos: "DEF" },
             { id: "c9", n: "Blind", p: 3, pos: "DEF" },
 
             { id: "c10", n: "Edu Expósito", p: 0, pos: "MED" },
@@ -368,21 +378,22 @@ export const TEAMS = [
         id: 11,
         name: "ANDRÉS FC",
         manager: "Andrés",
+        email: "Andresgimenezanderica@gmail.com",
         presupuesto: "426 M",
         gf: 0,
         pts: 74,
         alineacion: [
 
-            { id: "an1", n: "Letatec", p: 0.5, pos: "POR" },
-            { id: "an2", n: "Aguirrezabala", p: 1.5, pos: "POR" },
+            { id: "an1", n: "Letatec", p: 0, pos: "POR" },
+            { id: "an2", n: "Aguirrezabala", p: 1, pos: "POR" },
             { id: "an3", n: "Joan García", p: 37, pos: "POR" },
 
-            { id: "an4", n: "Jon Pacheco", p: 4.5, pos: "DEF" },
-            { id: "an5", n: "Zubeldia", p: 8.5, pos: "DEF" },
+            { id: "an4", n: "Jon Pacheco", p: 4, pos: "DEF" },
+            { id: "an5", n: "Zubeldia", p: 8, pos: "DEF" },
             { id: "an6", n: "Affengruber", p: 11, pos: "DEF" },
             { id: "an7", n: "Ó. Mingueza", p: 10, pos: "DEF" },
-            { id: "an8", n: "Boyomo", p: 0.5, pos: "DEF" },
-            { id: "an9", n: "Marcao", p: 0.5, pos: "DEF" },
+            { id: "an8", n: "Boyomo", p: 0, pos: "DEF" },
+            { id: "an9", n: "Marcao", p: 0, pos: "DEF" },
 
             { id: "an10", n: "Valverde", p: 0, pos: "MED" },
             { id: "an11", n: "Febas", p: 0, pos: "MED" },
@@ -400,15 +411,26 @@ export const TEAMS = [
 
         ]
     }
-]
+];
 
+export const getTitulares = (teamId) => {
+    const team = TEAMS.find(t => t.id === teamId);
+    if (!team) return [];
+
+    const por = team.alineacion.filter(p => p.pos === 'POR').sort((a, b) => b.p - a.p).slice(0, 1);
+    const def = team.alineacion.filter(p => p.pos === 'DEF').sort((a, b) => b.p - a.p).slice(0, 4);
+    const med = team.alineacion.filter(p => p.pos === 'MED').sort((a, b) => b.p - a.p).slice(0, 3);
+    const del = team.alineacion.filter(p => p.pos === 'DEL').sort((a, b) => b.p - a.p).slice(0, 3);
+
+    return [...del, ...med, ...def, ...por]; // Ordenados para que cuadren en la UI (delanteros arriba)
+};
 
 // Enfrentamientos actualizados con los nombres reales
 export const MATCHES_J1 = [
-    { id: 1, local: "XIMO FC", scoreLocal: 2, visitor: "PAU FC", scoreVisitor: 1, ptsL: 97, ptsV: 97.5 },
-    { id: 2, cap: true, local: "ARNAU FC", scoreLocal: 0, visitor: "JORGE FC", scoreVisitor: 3, ptsL: 89.5, ptsV: 76 },
-    { id: 3, local: "IVAN FC", scoreLocal: 1, visitor: "HUGO FC", scoreVisitor: 1, ptsL: 45.5, ptsV: 55.5 },
-    { id: 4, local: "FERRÁN FC", scoreLocal: 2, visitor: "MIGUE FC", scoreVisitor: 0, ptsL: 79, ptsV: 78.5 },
-    { id: 5, local: "SERGIO FC", scoreLocal: 1, visitor: "CAPÓ FC", scoreVisitor: 2, ptsL: 63, ptsV: 75.5 },
+    { id: 1, local: "XIMO FC", scoreLocal: 2, visitor: "PAU FC", scoreVisitor: 1, ptsL: 97, ptsV: 97 },
+    { id: 2, cap: true, local: "ARNAU FC", scoreLocal: 0, visitor: "JORGE FC", scoreVisitor: 3, ptsL: 89, ptsV: 76 },
+    { id: 3, local: "IVAN FC", scoreLocal: 1, visitor: "HUGO FC", scoreVisitor: 1, ptsL: 45, ptsV: 55 },
+    { id: 4, local: "FERRÁN FC", scoreLocal: 2, visitor: "MIGUE FC", scoreVisitor: 0, ptsL: 79, ptsV: 78 },
+    { id: 5, local: "SERGIO FC", scoreLocal: 1, visitor: "CAPÓ FC", scoreVisitor: 2, ptsL: 63, ptsV: 75 },
     { id: 6, local: "ANDRÉS FC", scoreLocal: 0, visitor: "DESCANSA", scoreVisitor: 0, ptsL: 74, ptsV: 0 }
 ];
